@@ -1,0 +1,54 @@
+Style/GuardClause:
+  Enabled: false
+
+Style/CaseIndentation:
+  IndentWhenRelativeTo: case
+  IndentOneStep: true
+
+Style/NonNilCheck:
+  IncludeSemanticChanges: true
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/DotPosition:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: true
+  EnforcedStyle: when_needed
+
+Style/Lambda:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/ZeroLengthPredicate:
+  Enabled: false
+
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - 'config/deploy*'
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'Gemfile'
+
+Documentation:
+  Enabled: false

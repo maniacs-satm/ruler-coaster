@@ -4,10 +4,10 @@ module Ruler
     class Or < Base
 
       def call(object)
-        result = left.(object)
+        result = left.call(object)
 
-        unless result.success?
-          right.(object)
+        if !result.success?
+          right.call(object)
         else
           result
         end

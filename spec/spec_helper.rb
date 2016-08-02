@@ -1,6 +1,6 @@
-require "pry"
-require "simplecov"
-require "codeclimate-test-reporter"
+require 'pry'
+require 'simplecov'
+require 'codeclimate-test-reporter'
 
 SimpleCov.start do
   formatter SimpleCov::Formatter::MultiFormatter.new [
@@ -9,8 +9,8 @@ SimpleCov.start do
   ]
 end
 
-require "ruler"
-require_relative "support/node_helpers"
+require 'ruler'
+require_relative 'support/node_helpers'
 
 RSpec.configure do |config|
   config.include NodeHelpers

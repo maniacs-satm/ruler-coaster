@@ -6,7 +6,7 @@ module Ruler
                 :input
 
     def initialize(rule, input)
-      super(rule, input ,false)
+      super(rule, input, false)
     end
 
     def negation

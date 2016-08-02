@@ -3,7 +3,7 @@ module Ruler
 
     class Empty < Base
 
-      def initialize(*args)
+      def initialize(*_args)
         super(nil)
       end
 

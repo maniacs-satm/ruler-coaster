@@ -1,34 +1,34 @@
 describe Ruler do
 
-  context "Parser" do
+  context 'Parser' do
 
     let(:json_rule) {
       {
-        type: "and",
+        type: 'and',
         left: {
-          type: "rule",
-          path: "from",
+          type: 'rule',
+          path: 'from',
           operator: {
-            type: "equal",
-            value: "Lisboa"
+            type: 'equal',
+            value: 'Lisboa'
           }
         },
         right: {
-          type: "or",
+          type: 'or',
           left: {
-            type: "rule",
-            path: "to",
+            type: 'rule',
+            path: 'to',
             operator: {
-              type: "equal",
-              value: "Porto"
+              type: 'equal',
+              value: 'Porto'
             }
           },
           right: {
-            type: "rule",
-            path: "to",
+            type: 'rule',
+            path: 'to',
             operator: {
-              type: "equal",
-              value: "Braga"
+              type: 'equal',
+              value: 'Braga'
             }
           }
         }
@@ -37,11 +37,11 @@ describe Ruler do
 
     let(:nested_json_rule) {
       {
-        type: "rule",
-        path: "a.b.c",
+        type: 'rule',
+        path: 'a.b.c',
         operator: {
-          type: "equal",
-          value: "Nested"
+          type: 'equal',
+          value: 'Nested'
         }
       }
     }
@@ -50,7 +50,7 @@ describe Ruler do
       @rule = Ruler::Parser.parse(json_rule)
     end
 
-    it "should compile json to Rule" do
+    it 'should compile json to Rule' do
       expect(@rule).to be_a(Ruler::Logic::And)
       expect(@rule.left).to be_a(Ruler::Rule)
       expect(@rule.right).to be_a(Ruler::Logic::Or)
@@ -58,22 +58,22 @@ describe Ruler do
       expect(@rule.right.right).to be_a(Ruler::Rule)
     end
 
-    it "should run Rule against an object" do
-      expect(@rule.({ from: "Lisboa", to: "Porto" }).success?).to eq(true)
-      expect(@rule.({ from: "Lisboa", to: "Braga" }).success?).to eq(true)
-      expect(@rule.({ from: "Lisboa", to: "Leiria" }).success?).to eq(false)
+    it 'should run Rule against an object' do
+      expect(@rule.call({ from: 'Lisboa', to: 'Porto' }).success?).to eq(true)
+      expect(@rule.call({ from: 'Lisboa', to: 'Braga' }).success?).to eq(true)
+      expect(@rule.call({ from: 'Lisboa', to: 'Leiria' }).success?).to eq(false)
     end
 
-    it "should run Rule against a top level object" do
-      result = Ruler::Parser.parse(nested_json_rule).({ a: { b: { c: "Nested"} } })
+    it 'should run Rule against a top level object' do
+      result = Ruler::Parser.parse(nested_json_rule).call({ a: { b: { c: 'Nested'} } })
 
       expect(result.success?).to eq(true)
 
-      result = Ruler::Parser.parse(nested_json_rule).({ a: { b: { c: "Nope"} }})
+      result = Ruler::Parser.parse(nested_json_rule).call({ a: { b: { c: 'Nope'} }})
 
       expect(result.success?).to eq(false)
 
-      expect{ Ruler::Parser.parse(nested_json_rule).({ a: { b: 1 }}) }.to \
+      expect{ Ruler::Parser.parse(nested_json_rule).call({ a: { b: 1 }}) }.to \
         raise_error(Ruler::NavigationError)
     end
 

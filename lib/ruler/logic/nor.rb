@@ -4,10 +4,10 @@ module Ruler
     class Nor < Base
 
       def call(object)
-        result = left.(object)
+        result = left.call(object)
 
-        unless result.success?
-          right.(object).negation
+        if !result.success?
+          right.call(object).negation
         else
           result.negation
         end

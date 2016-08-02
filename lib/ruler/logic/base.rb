@@ -1,4 +1,4 @@
-require "ruler/logic/mixin"
+require 'ruler/logic/mixin'
 
 module Ruler
   module Logic
@@ -20,7 +20,7 @@ module Ruler
   end
 end
 
-require "ruler/logic/and"
-require "ruler/logic/or"
-require "ruler/logic/not"
-require "ruler/logic/nor"
+require 'ruler/logic/and'
+require 'ruler/logic/or'
+require 'ruler/logic/not'
+require 'ruler/logic/nor'

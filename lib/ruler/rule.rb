@@ -8,7 +8,7 @@ module Ruler
                 :operator
 
     def initialize(path, operator)
-      @path = path.split(".")
+      @path = path.split('.')
       @operator = operator
     end
 
@@ -18,7 +18,7 @@ module Ruler
       if input.nil? && !operator.is_a?(Operator::Empty)
         NoResult.new(self, input)
       else
-        Result.new(self, input, operator.(input))
+        Result.new(self, input, operator.call(input))
       end
     end
 
@@ -31,7 +31,7 @@ module Ruler
 
       next_key = navigation_path.shift.to_sym
 
-      if navigation_path.length > 0
+      if !navigation_path.empty?
         navigate(object[next_key], navigation_path)
       else
         object[next_key]

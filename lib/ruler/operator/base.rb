@@ -14,11 +14,11 @@ module Ruler
   end
 end
 
-require "ruler/operator/contain"
-require "ruler/operator/empty"
-require "ruler/operator/equal"
-require "ruler/operator/greater_than"
-require "ruler/operator/less_than"
-require "ruler/operator/not_contain"
-require "ruler/operator/not_empty"
-require "ruler/operator/not_equal"
+require 'ruler/operator/contain'
+require 'ruler/operator/empty'
+require 'ruler/operator/equal'
+require 'ruler/operator/greater_than'
+require 'ruler/operator/less_than'
+require 'ruler/operator/not_contain'
+require 'ruler/operator/not_empty'
+require 'ruler/operator/not_equal'

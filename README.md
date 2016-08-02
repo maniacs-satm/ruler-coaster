@@ -1,4 +1,4 @@
-# Ruler
+# RulerCoaster
 Rule engine
 
 [![Code Climate](https://codeclimate.com/github/Streetbees/ruler/badges/gpa.svg)](https://codeclimate.com/github/Streetbees/ruler)
@@ -64,9 +64,9 @@ data = {
 ```
 
 ```ruby
-ruler = RulerCoaster.parse(json_rule)
+rules = RulerCoaster.parse(json_rule)
 
-result = RulerCoaster.(data)
+result = ruler.(data)
 
 if result.success?
   # continue
@@ -80,7 +80,7 @@ end
 
 Add this to your Gemfile:
 ```
-gem 'ruler'
+gem 'ruler_coaster'
 ```
 
 And then execute:

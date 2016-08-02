@@ -1,7 +1,5 @@
 module Ruler
-
   class Rule
-
     include Logic::Mixin
 
     attr_reader :path,
@@ -39,7 +37,5 @@ module Ruler
     rescue
       raise NavigationError, "cannot navigate to #{path} on #{object.inspect}"
     end
-
   end
-
 end

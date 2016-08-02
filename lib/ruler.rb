@@ -7,9 +7,7 @@ require 'ruler/no_result'
 require 'ruler/coaster/base'
 
 module Ruler
-
   class NavigationError < StandardError; end
 
   extend Parser
-
 end

@@ -1,16 +1,12 @@
 module Ruler
   module Operator
-
     class Base
-
       attr_reader :assert_value
 
       def initialize(assert_value)
         @assert_value = assert_value
       end
-
     end
-
   end
 end
 

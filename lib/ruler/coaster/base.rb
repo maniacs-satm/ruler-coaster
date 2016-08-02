@@ -2,9 +2,7 @@ require 'ruler/coaster/result'
 
 module Ruler
   module Coaster
-
     class Base
-
       attr_reader :rules
 
       def initialize(rules)
@@ -49,9 +47,6 @@ module Ruler
         blocked << attr unless blocked.include?(attr)
         blocked
       end
-
     end
-
   end
-
 end

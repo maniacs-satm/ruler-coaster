@@ -2,9 +2,7 @@ require 'ruler/logic/mixin'
 
 module Ruler
   module Logic
-
     class Base
-
       include Mixin
 
       attr_reader :left,
@@ -14,9 +12,7 @@ module Ruler
         @left = left
         @right = right
       end
-
     end
-
   end
 end
 

@@ -1,8 +1,6 @@
 module Ruler
   module Coaster
-
     class Result
-
       attr_reader :rules,
                   :input,
                   :errors,
@@ -16,11 +14,8 @@ module Ruler
       end
 
       def success?
-        @errors.keys.length == 0 && @blocked.length == 0
+        @errors.keys.empty? && @blocked.empty?
       end
-
     end
-
   end
-
 end

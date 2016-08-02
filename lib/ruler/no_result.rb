@@ -1,7 +1,5 @@
 module Ruler
-
   class NoResult < Result
-
     attr_reader :rule,
                 :input
 
@@ -12,7 +10,5 @@ module Ruler
     def negation
       self
     end
-
   end
-
 end

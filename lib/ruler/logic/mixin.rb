@@ -1,8 +1,6 @@
 module Ruler
   module Logic
-
     module Mixin
-
       def and(right)
         Logic::And.new(self, right)
       end
@@ -18,8 +16,6 @@ module Ruler
       def nor(right)
         Logic::Nor.new(self, right)
       end
-
     end
-
   end
 end

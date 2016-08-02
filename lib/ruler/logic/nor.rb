@@ -1,8 +1,6 @@
 module Ruler
   module Logic
-
     class Nor < Base
-
       def call(object)
         result = left.call(object)
 
@@ -12,8 +10,6 @@ module Ruler
           result.negation
         end
       end
-
     end
-
   end
 end

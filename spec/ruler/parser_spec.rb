@@ -47,7 +47,7 @@ describe Ruler do
     }
 
     before(:each) do
-      @rule = Ruler::Parser.parse(json_rule)
+      @rule = Ruler.parse(json_rule)
     end
 
     it 'should compile json to Rule' do
@@ -65,15 +65,15 @@ describe Ruler do
     end
 
     it 'should run Rule against a top level object' do
-      result = Ruler::Parser.parse(nested_json_rule).call({ a: { b: { c: 'Nested'} } })
+      result = Ruler.parse(nested_json_rule).call({ a: { b: { c: 'Nested'} } })
 
       expect(result.success?).to eq(true)
 
-      result = Ruler::Parser.parse(nested_json_rule).call({ a: { b: { c: 'Nope'} }})
+      result = Ruler.parse(nested_json_rule).call({ a: { b: { c: 'Nope'} }})
 
       expect(result.success?).to eq(false)
 
-      expect{ Ruler::Parser.parse(nested_json_rule).call({ a: { b: 1 }}) }.to \
+      expect{ Ruler.parse(nested_json_rule).call({ a: { b: 1 }}) }.to \
         raise_error(Ruler::NavigationError)
     end
 

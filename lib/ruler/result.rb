@@ -1,7 +1,5 @@
 module Ruler
-
   class Result
-
     attr_reader :rule,
                 :input
 
@@ -20,7 +18,5 @@ module Ruler
 
       self
     end
-
   end
-
 end

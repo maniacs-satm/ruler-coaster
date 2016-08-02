@@ -1,9 +1,5 @@
 module Ruler
-
   module Parser
-
-    extend self
-
     def parse(root)
       visit(symbolyze_keys(root))
     end
@@ -64,6 +60,8 @@ module Ruler
       Operator::NotEmpty.new(node[:value])
     end
 
+    module_function
+
     def symbolyze_keys(hash)
       {}.tap do |symbolyzed_hash|
         hash.each do |key, value|
@@ -76,7 +74,5 @@ module Ruler
         end
       end
     end
-
   end
-
 end

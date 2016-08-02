@@ -3,7 +3,7 @@ Rule engine
 
 [![Code Climate](https://codeclimate.com/github/Streetbees/ruler/badges/gpa.svg)](https://codeclimate.com/github/Streetbees/ruler)
 [![Test Coverage](https://codeclimate.com/github/Streetbees/ruler/badges/coverage.svg)](https://codeclimate.com/github/Streetbees/ruler/coverage)
-[![Build Status](https://travis-ci.org/Streetbees/ruler.svg?branch=master)](https://travis-ci.org/Streetbees/ruler)
+[![Build Status](https://travis-ci.org/Streetbees/RulerCoaster.svg?branch=master)](https://travis-ci.org/Streetbees/ruler)
 ## Usage
 
 ```ruby
@@ -64,9 +64,9 @@ data = {
 ```
 
 ```ruby
-ruler = Ruler.parse(json_rule)
+ruler = RulerCoaster.parse(json_rule)
 
-result = ruler.(data)
+result = RulerCoaster.(data)
 
 if result.success?
   # continue

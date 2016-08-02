@@ -12,7 +12,7 @@ SimpleCov.start do
 end
 
 require 'pry'
-require 'ruler'
+require 'ruler_coaster'
 require_relative 'support/node_helpers'
 
 RSpec.configure do |config|

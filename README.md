@@ -1,7 +1,10 @@
 # Ruler
 Rule engine
 
-## 1) Usage
+[![Code Climate](https://codeclimate.com/github/Streetbees/ruler/badges/gpa.svg)](https://codeclimate.com/github/Streetbees/ruler)
+[![Test Coverage](https://codeclimate.com/github/Streetbees/ruler/badges/coverage.svg)](https://codeclimate.com/github/Streetbees/ruler/coverage)
+[![Build Status](https://travis-ci.org/Streetbees/ruler.svg?branch=master)](https://travis-ci.org/Streetbees/ruler)
+## Usage
 
 ```ruby
 json_rule = {
@@ -73,7 +76,7 @@ else
 end
 ```
 
-## 2) Instalation
+## Instalation
 
 Add this to your Gemfile:
 ```

@@ -9,25 +9,62 @@ describe RulerCoaster do
 
     context 'should parse Equal' do
 
-      before(:each) do
-        @operator = \
-          RulerCoaster.parse(build_operator('equal', assert_string_value))
+      context "with string assert value" do
+
+        before(:each) do
+          @operator = \
+            RulerCoaster.parse(build_operator('equal', assert_string_value))
+        end
+
+        it 'should be the right instance' do
+          expect(operator).to be_a RulerCoaster::Operator::Equal
+        end
+
+        it 'should have value' do
+          expect(operator.assert_value).to eq assert_string_value
+        end
+
+        it 'should assert true' do
+          expect(operator.call('London')).to eq true
+        end
+
+        it 'should assert false' do
+          expect(operator.call('Lisboa')).to eq false
+        end
+
       end
 
-      it 'should be the right instance' do
-        expect(operator).to be_a RulerCoaster::Operator::Equal
-      end
+      context "with integer assert value" do
 
-      it 'should have value' do
-        expect(operator.assert_value).to eq assert_string_value
-      end
+        before(:each) do
+          @operator = \
+            RulerCoaster.parse(build_operator('equal', assert_integer_value))
+        end
 
-      it 'should assert true' do
-        expect(operator.call('London')).to eq true
-      end
+        it 'should be the right instance' do
+          expect(operator).to be_a RulerCoaster::Operator::Equal
+        end
 
-      it 'should assert false' do
-        expect(operator.call('Lisboa')).to eq false
+        it 'should have value' do
+          expect(operator.assert_value).to eq assert_integer_value
+        end
+
+        it 'should assert true' do
+          expect(operator.call(2016)).to eq true
+        end
+
+        it 'should assert true 1' do
+          expect(operator.call("2016")).to eq true
+        end
+
+        it 'should assert false' do
+          expect(operator.call(2015)).to eq false
+        end
+
+        it 'should assert false 1' do
+          expect(operator.call("two015")).to eq false
+        end
+
       end
 
     end

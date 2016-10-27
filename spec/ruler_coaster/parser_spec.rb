@@ -172,6 +172,24 @@ describe RulerCoaster do
         end
       end
 
+      context 'array 1' do
+        let(:json_rule) {
+          {
+            type: 'rule',
+            path: 'array',
+            operator: {
+              type: 'equal',
+              value: ['1', '2', '3', '4']
+            }
+          }
+        }
+
+        it 'should compile value to Array[String]' do
+          expect(@rule.operator.assert_value).to eq(['1', '2', '3', '4'])
+          expect(@rule.operator.assert_value.class).to eq(Array)
+        end
+      end
+
       context 'array[string]' do
         let(:json_rule) {
           {

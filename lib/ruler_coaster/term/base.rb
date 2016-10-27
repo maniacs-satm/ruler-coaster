@@ -8,7 +8,7 @@ module RulerCoaster
         'array' => Term::Array,
         'array[string]' => Term::Array,
         'array[number]' => Term::ArrayNumber,
-        'array[decimal]' => Term::ArrayDecimal,
+        'array[decimal]' => Term::ArrayDecimal
       }
 
       (mapping[value_type] || Term::String).new(value)

@@ -11,7 +11,7 @@ module RulerCoaster
       private
 
       def build_term(value, value_type)
-        value.is_a?(Term::Base) ? value : Term.(value, value_type)
+        value.is_a?(Term::Base) ? value : Term.call(value, value_type)
       end
 
       def infere_value_type(type, value)
@@ -22,11 +22,9 @@ module RulerCoaster
           Array => 'array'
         }
 
-        if type.nil?
-          mapping[value.class] || 'string'
-        else
-          type
-        end
+        return mapping[value.class] || 'string' if type.nil?
+
+        type
       end
     end
   end

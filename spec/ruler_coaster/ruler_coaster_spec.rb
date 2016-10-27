@@ -1,7 +1,5 @@
 describe RulerCoaster do
-
   context 'Attributes' do
-
     before(:each) do
       @group = \
         RulerCoaster::Attributes::Base.new \
@@ -26,7 +24,5 @@ describe RulerCoaster do
       expect(result.success?).to eq(false)
       expect(result.blocked).to include(:age)
     end
-
   end
-
 end

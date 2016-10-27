@@ -1,7 +1,16 @@
 describe RulerCoaster do
+  context 'Type cast' do
+    it 'should cast interger value for comparison' do
+      result = \
+        RulerCoaster::Rule.new('score', RulerCoaster::Operator::GreaterThan.new('9000', 'number'))
+          .call(score: 9001)
+
+      expect(result).to be_a RulerCoaster::Result
+      expect(result.success?).to eq true
+    end
+  end
 
   context 'No Result' do
-
     it 'should return no result if nil' do
       result = \
         RulerCoaster::Rule.new('gender', RulerCoaster::Operator::Equal.new('m'))
@@ -28,13 +37,10 @@ describe RulerCoaster do
       expect(result).to be_a RulerCoaster::Result
       expect(result.success?).to eq false
     end
-
   end
 
   context 'Examples' do
-
     context 'Only user males above 20 from Porto, PT rule' do
-
       before(:each) do
         @rule = \
           RulerCoaster::Rule.new('user.gender', RulerCoaster::Operator::Equal.new('m'))
@@ -57,11 +63,9 @@ describe RulerCoaster do
 
         expect(result.success?).to eq(true)
       end
-
     end
 
     context 'Only user males above 20 from Porto or London rule' do
-
       before(:each) do
         @rule = \
           RulerCoaster::Rule.new('user.gender', RulerCoaster::Operator::Equal.new('m'))
@@ -108,11 +112,9 @@ describe RulerCoaster do
 
         expect(result.success?).to eq(false)
       end
-
     end
 
     context 'No males from Porto neither London' do
-
       before(:each) do
         @rule = \
           RulerCoaster::Rule.new('user.location.city', RulerCoaster::Operator::Equal.new('Porto'))
@@ -154,11 +156,9 @@ describe RulerCoaster do
 
         expect(result.success?).to eq(false)
       end
-
     end
 
     context "No males that haven't studied in Porto and London" do
-
       before(:each) do
         @rule = \
           RulerCoaster::Rule.new('user.univ_1', RulerCoaster::Operator::Equal.new('Porto'))
@@ -186,9 +186,6 @@ describe RulerCoaster do
 
         expect(result.success?).to eq(true)
       end
-
     end
-
   end
-
 end

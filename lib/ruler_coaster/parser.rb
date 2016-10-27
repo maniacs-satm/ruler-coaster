@@ -29,35 +29,35 @@ module RulerCoaster
     end
 
     def visit_equal(node)
-      Operator::Equal.new(node[:value])
+      Operator::Equal.new node[:value], node[:value_type]
     end
 
     def visit_not_equal(node)
-      Operator::NotEqual.new(node[:value])
+      Operator::NotEqual.new node[:value], node[:value_type]
     end
 
     def visit_greater_than(node)
-      Operator::GreaterThan.new(node[:value])
+      Operator::GreaterThan.new node[:value], node[:value_type]
     end
 
     def visit_less_than(node)
-      Operator::LessThan.new(node[:value])
+      Operator::LessThan.new node[:value], node[:value_type]
     end
 
     def visit_contain(node)
-      Operator::Contain.new(node[:value])
+      Operator::Contain.new node[:value], node[:value_type]
     end
 
     def visit_not_contain(node)
-      Operator::NotContain.new(node[:value])
+      Operator::NotContain.new node[:value], node[:value_type]
     end
 
     def visit_empty(node)
-      Operator::Empty.new(node[:value])
+      Operator::Empty.new node[:value], node[:value_type]
     end
 
     def visit_not_empty(node)
-      Operator::NotEmpty.new(node[:value])
+      Operator::NotEmpty.new node[:value], node[:value_type]
     end
 
     module_function

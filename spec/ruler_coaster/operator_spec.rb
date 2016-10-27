@@ -98,7 +98,8 @@ describe RulerCoaster do
 
       before(:each) do
         @operator = \
-          RulerCoaster.parse(build_operator('greater_than', assert_integer_value))
+          RulerCoaster.parse \
+            build_operator('greater_than', assert_integer_value)
       end
 
       it 'should be the right instance' do
@@ -145,10 +146,10 @@ describe RulerCoaster do
     end
 
     context 'should parse Contain' do
-
       before(:each) do
         @operator = \
-          RulerCoaster.parse(build_operator('contain', assert_array_value))
+          RulerCoaster.parse \
+            build_operator('contain', assert_array_value, 'array[number]')
       end
 
       it 'should be the right instance' do
@@ -166,14 +167,15 @@ describe RulerCoaster do
       it 'should assert false' do
         expect(operator.call(5)).to eq false
       end
-
     end
 
     context 'should parse Not Contain' do
+      let(:assert_array_value) { ['1', '2', '3'] }
 
       before(:each) do
         @operator = \
-          RulerCoaster.parse(build_operator('not_contain', assert_array_value))
+          RulerCoaster.parse \
+            build_operator('not_contain', assert_array_value, 'array[number]')
       end
 
       it 'should be the right instance' do
@@ -181,7 +183,7 @@ describe RulerCoaster do
       end
 
       it 'should have value' do
-        expect(operator.assert_value).to eq assert_array_value
+        expect(operator.assert_value).to eq [1, 2, 3]
       end
 
       it 'should assert true' do
@@ -191,11 +193,9 @@ describe RulerCoaster do
       it 'should assert false' do
         expect(operator.call(2)).to eq false
       end
-
     end
 
     context 'should parse Empty' do
-
       before(:each) do
         @operator = \
           RulerCoaster.parse(build_operator('empty'))
@@ -206,7 +206,7 @@ describe RulerCoaster do
       end
 
       it 'should have value' do
-        expect(operator.assert_value).to be_nil
+        expect(operator.assert_value).to be_empty
       end
 
       it 'should assert true' do
@@ -216,11 +216,9 @@ describe RulerCoaster do
       it 'should assert false' do
         expect(operator.call('abc')).to eq false
       end
-
     end
 
     context 'should parse Not Empty' do
-
       before(:each) do
         @operator = \
           RulerCoaster.parse(build_operator('not_empty'))
@@ -231,7 +229,7 @@ describe RulerCoaster do
       end
 
       it 'should have value' do
-        expect(operator.assert_value).to be_nil
+        expect(operator.assert_value).to be_empty
       end
 
       it 'should assert true' do
@@ -241,9 +239,6 @@ describe RulerCoaster do
       it 'should assert false' do
         expect(operator.call('')).to eq false
       end
-
     end
-
   end
-
 end

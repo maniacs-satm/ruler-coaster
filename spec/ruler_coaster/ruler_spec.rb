@@ -3,7 +3,7 @@ describe RulerCoaster do
     it 'should cast interger value for comparison' do
       result = \
         RulerCoaster::Rule.new('score', RulerCoaster::Operator::GreaterThan.new('9000', 'number'))
-          .call(score: 9001)
+          .call(score: '9001')
 
       expect(result).to be_a RulerCoaster::Result
       expect(result.success?).to eq true

@@ -2,7 +2,7 @@ module RulerCoaster
   module Operator
     class GreaterThan < Base
       def call(value)
-        value > assert_value
+        term_for(value) > assert_value
       end
     end
   end

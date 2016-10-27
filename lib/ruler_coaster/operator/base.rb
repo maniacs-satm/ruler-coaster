@@ -1,11 +1,18 @@
 module RulerCoaster
   module Operator
     class Base
-      attr_reader :assert_value
+      attr_reader :assert_value,
+                  :value_type
 
       def initialize(value, value_type = nil)
-        @assert_value = \
-          build_term(value, infere_value_type(value_type, value)).value
+        @value_type = infere_value_type(value_type, value)
+        @assert_value = build_term(value, @value_type).value
+      end
+
+      protected
+
+      def term_for(value)
+        Term.call(value, @value_type).value
       end
 
       private

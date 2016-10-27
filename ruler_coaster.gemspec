@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['dev@streetbees.com']
   gem.description   = 'RulerCoaster'
   gem.summary       = 'Rule engine'
-  gem.homepage      = 'https://github.com/streetbees/rule-coaster'
+  gem.homepage      = 'https://github.com/streetbees/ruler-coaster'
 
   gem.files = Dir['README.md', 'lib/**/*']
   gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }

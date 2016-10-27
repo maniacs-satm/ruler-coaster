@@ -1,4 +1,5 @@
 require 'ruler_coaster/parser'
+require 'ruler_coaster/term/base'
 require 'ruler_coaster/operator/base'
 require 'ruler_coaster/logic/base'
 require 'ruler_coaster/rule'
